@@ -1,0 +1,548 @@
+$principal : #2C2C2C;
+$secundario : rgb(67, 65, 195);
+$borde : rgb(67, 65, 195);
+$navbar : rgb(89, 87, 224);
+
+
+body{
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    color: $principal;
+}
+
+
+
+/*----------------------------------------
+ 1. Header
+-----------------------------------------*/
+
+header{
+    height: 100vh;
+    background:linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.7)),url(../img/pagina/header.jpg) center center / cover;
+    background-attachment: fixed;
+}
+
+
+// Navegacion
+
+.navbar-menu{
+    background: transparent;
+    transition: all .5s ease;
+}
+.navbar{
+    z-index: 50;
+}
+
+// estilos para el boton hamburguesa
+/* .boton-hamburguesa::after{
+    font-family: "Font Awesome 5 Pro";
+    content: "\f0c9";
+    font-weight: 900;
+    font-size: 2rem;
+} */
+// otro estilo de menu hamburguesa
+.linea1, .linea2, .linea3{
+    width: 23px;
+    height: 3px;
+    margin: 5px;
+    transition: all .7s ease;
+}
+.cambio .linea1{
+    transform: rotate(-45deg) translate(-5px,6px);
+}
+.cambio .linea2{
+    opacity: 0;
+}
+.cambio .linea3{
+    transform: rotate(45deg) translate(-5px,-6px);
+}
+
+.navbar-toggler{
+    border: none;
+}
+header nav button:focus {
+    outline: 0;
+}
+// estilo para los links
+.menu-link{
+    transition: all .4s ease;
+}
+.nav-item .active{
+    color: $navbar !important;
+}
+.menu-link:hover{
+    color: rgba($navbar, $alpha: .8) !important;
+}
+.cambio-navbar2{
+    background: linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,1));
+}
+// cambio para el navbar
+.cambio-navbar{
+    background: linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.9));
+    padding: 0px 30px;
+}
+
+
+
+
+
+// Banner
+
+.banner{
+    // posicionamos el banner sabiendo que el header esta en posicion relativa
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+}
+// animacion a la letra
+.banner-titulo{
+    animation-name: animacion;
+    animation-duration: 2s;
+}
+.banner-subtitulo{
+    animation-name: animacion;
+    animation-duration: 2s;
+    // timepo que tardara en aparecer
+    animation-delay: .5s;
+    // asemos que se esconda el subtitulo hasta que aparesca su tiempo de entrar
+    animation-fill-mode: backwards;
+}
+
+
+// animacion funcion
+@keyframes animacion{
+    0%{
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+}
+
+
+/*----------------------------------------
+ 2. seccion mision
+-----------------------------------------*/
+.mision i{
+    color: $secundario;
+}
+.subrayado{
+    width: 120px;
+    border: 2px solid $borde;
+    margin: auto;  //lo ajusta al centro
+}
+// animaciones para el texto y imagen
+
+
+// creamos clases que tendra la animacion
+.llegadaIzq{
+    animation-name: llegadaIzq;
+    animation-duration: 3s;
+}
+.llegadaDer{
+    animation-name: llegadaDer;
+    animation-duration: 3s;
+}
+
+@keyframes llegadaIzq{
+    0%{
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+}
+@keyframes llegadaDer{
+    0%{
+        transform: translateX(120px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+}
+
+/*----------------------------------------
+ 3. seccion coleccion
+-----------------------------------------*/
+.coleccion{
+    position: relative;
+}
+.coleccion::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.7));
+}
+.subrayado2{
+    width: 120px;
+    border: 2px solid white;
+    margin: auto;  //lo ajusta al centro
+}
+
+.card-sombra{
+    box-shadow: 5px 8px 20px #444;
+    transition: all .5s ease;
+}
+.card-sombra:hover{
+    transform: translateY(-10px);
+}
+
+.card-titulo{
+    position: absolute;
+    top: 70%;
+    right: 0;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background-color: $principal;
+    width: 70%;
+    cursor: pointer;
+    opacity: .7;
+    transition: all .5s ease;
+}
+.card-titulo:hover{
+    opacity: 1;
+}
+
+/*----------------------------------------
+ 4. seccion Galeria
+-----------------------------------------*/
+.galeria .list-inline-item{
+    margin-right: 0;
+}
+.galeria-list-item{
+    color: #777;
+    cursor: pointer;
+    user-select: none; //para que solo se marque la letra
+}
+.item-activo{
+    color: $secundario;
+}
+
+/*----------------------------------------
+ 5. seccion Clientes
+-----------------------------------------*/
+
+.clientes{
+    
+    position: relative;
+}
+.clientes::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(14, 16, 17, 0.7);
+}
+// cambiamos el indicador a circular
+.carousel-indicators li{
+    width: 1rem !important;
+    height: 1rem !important;
+    border-radius: 50% !important;
+    transition: all .5s ease;
+    border: 0 !important;
+}
+.carousel-indicators li.active{
+    background: rgba($secundario,.8);
+    border: 0 !important;
+}
+.carousel-indicators  li:hover{
+    background-color: $secundario;
+}
+.clientes .carousel-inner img{
+    border: 5px solid rgba($navbar, $alpha: .2);
+}
+.clientes .carousel-inner h5{
+    color: #6564b5;
+}
+
+
+
+
+
+/*----------------------------------------
+ 6. seccion Precios
+-----------------------------------------*/
+.card-1, .card-2, .card-3{
+    background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.5)), url(../img/pagina/pricing-card-bg.jpeg) no-repeat center / cover;
+    
+    // le damo tamaño maximo para que no se extienda mal en otras pantallas
+    max-width: 300px;
+}
+.card-lista{
+    // ponemos un margen y asemos que tenga un acho limitado
+    border-bottom: 1px groove #eee;
+    width: 55%;
+    margin: auto;
+}
+.card-precio{
+    background: $secundario;
+    width: 140px;
+    border-radius: 25px;
+    box-shadow: 5px 8px 18px black;
+    transition: all .4s ease;
+}
+.card-precio:hover{
+    background: rgba($navbar, $alpha: .5);
+    transform: translateY(-3px);
+}
+
+// animaciones para los card
+
+.llegadaIzqCard{
+    animation-name: llegadaIzq;
+    animation-duration: 3s;
+}
+.llegadaDerCard{
+    animation-name: llegadaDer;
+    animation-duration: 3s;
+}
+.llegadaAbajCard{
+    animation-name: llegadaAbajo;
+    animation-duration: 3s;
+}
+
+@keyframes llegadaIzq{
+    0%{
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+}
+@keyframes llegadaDer{
+    0%{
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+}
+@keyframes llegadaAbajo{
+    0%{
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+}
+
+/*----------------------------------------
+ 7. seccion Contacto
+-----------------------------------------*/
+.contacto{
+    // damos angulo de desvio y ese angulo tendra los colores de rgba em porcentaje es para saber hasta donde estara ese desvio de angulo
+    background: linear-gradient(105deg, rgba(#27323A,1) 0%,
+     rgba(#27323A,.95) 50%,
+      transparent 50%) ,
+       url(../img/pagina/form.jpeg) no-repeat center center / cover;
+
+}
+
+// editamos el formulario
+
+.input{
+    background: transparent;
+    border-color: transparent;
+    border-bottom: 2px solid #eee;
+    border-radius: 0;
+    transition: all .8s ease;
+}
+.input:focus{
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    color: white;
+    border-bottom: 2px solid $navbar;
+}
+
+.boton-envio{
+    background: $navbar;
+    color: white;
+    transition: all .4s ease;
+    border-color: transparent;
+}
+.boton-envio:focus{
+    background: $navbar;
+    color: white;
+    border-color: transparent;
+    box-shadow: none;
+}
+.boton-envio:active{
+    background: $navbar !important;
+    color: white;
+    border-color: transparent;
+    box-shadow: none;
+    border:none;
+}
+.boton-envio:hover{
+    background: $secundario;
+    border-color: transparent;
+    color: white;
+    transform: translateY(-4px);
+}
+
+// estilos para el label del form
+.label{
+    color: #6C757D;
+    display: block;
+    // posicionamos arriba del input
+    margin-top: -60px;
+    margin-left: 4px;
+    font-size: 13px;
+    transition: all .3s ease;
+} 
+.input:placeholder-shown + .label{
+    transform: translate(20px,20px);
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+
+
+
+/*----------------------------------------
+ 8. seccion Footer
+-----------------------------------------*/
+footer{
+    background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.7)), url(../img/footer-bg1.jpg) no-repeat center center /cover;
+    
+}
+.footer-link{
+    color: white;
+    font-size: 13px;
+    transition: all .3s ease;
+}
+.footer-link:hover{
+    color: $navbar;
+    text-decoration: none;
+}
+.boton-envio2{
+    background: $navbar;
+    color: white;
+    transition: all .4s ease;
+    border-color: transparent;
+}
+.boton-envio2:focus{
+    background: $navbar;
+    color: white;
+    border-color: transparent;
+    box-shadow: none;
+}
+.boton-envio2:active{
+    background: $navbar !important;
+    color: white;
+    border-color: transparent;
+    box-shadow: none;
+    border:none;
+}
+.boton-envio2:hover{
+    background: $secundario !important;
+    border-color: transparent !important;
+    color: white !important;
+}
+
+
+
+
+
+
+.elevacion{
+    transition: all .3s ease;
+}
+.elevacion:hover{
+    transform: translateY(-3px) rotate(360deg);
+}
+
+
+
+
+
+
+
+
+/*----------------------------------------
+ X. SHOW DE MEDIAS QUERYS
+-----------------------------------------*/
+
+@media (max-width: 576px){
+    // estilos para el titulo del sitio
+    header{
+        background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.5)), url(../img/pagina/celular.jpg) fixed center center / cover;
+        
+    }
+    /* .banner{
+        position: relative;
+        margin-top: -20%;
+        margin-left: -5%;
+    } */
+    .banner-titulo,.banner-titulo span{
+        font-size: 2.3rem !important;
+        width: 60%;
+    }
+    .banner-subtitulo{
+        font-size: .8rem !important;
+        width: 60%;
+    }
+    // seccion mision
+    .mision-img img{
+        width: 250px;
+    }
+    
+ 
+    
+}
+@media (max-width: 768px){
+    .contacto{
+        background: linear-gradient(rgba(#27323A,1), rgba(#27323A,.95));
+    }
+    .form-contacto{
+        width: 80%;
+        margin: auto;
+    }
+    
+}
+
+// arreglo a la mision del sitio 
+@media (min-width:768px) and (max-width:992px){
+    .mision .arreglo h3{
+        font-size: 1.5rem !important;
+    }
+}
+
+// modificamos cuantas imagenes se veran en cada tamaño de pantalla
+@media (min-width: 576px){
+.card-columns {
+    column-count: 2; 
+}
+}
+@media (min-width: 768px){
+.card-columns {
+    column-count: 3;
+}
+}
